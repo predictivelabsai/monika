@@ -330,6 +330,11 @@ from utils.agui import setup_agui, get_chat_styles, StreamingCommand, list_conve
 agui = setup_agui(app, langgraph_agent, command_interceptor=_command_interceptor)
 
 
+@rt("/api/health")
+def health_check():
+    return {"status": "ok"}
+
+
 # ---------------------------------------------------------------------------
 # Layout CSS
 # ---------------------------------------------------------------------------
@@ -1236,4 +1241,4 @@ def index(session):
 # Serve
 # ---------------------------------------------------------------------------
 
-serve(host="0.0.0.0", port=5010, reload=os.getenv("AHMF_RELOAD", "true").lower() == "true")
+serve(port=int(os.environ.get("PORT", 5010)))
