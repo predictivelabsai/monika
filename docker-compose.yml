@@ -1,0 +1,17 @@
+services:
+  ahmf:
+    build: .
+    restart: unless-stopped
+    expose:
+      - "5010"
+    ports:
+      - "5010:5010"
+    environment:
+      - DB_URL=${DB_URL}
+      - XAI_API_KEY=${XAI_API_KEY}
+      - TMDB_API_KEY=${TMDB_API_KEY}
+      - TMDB_API_READ_TOKEN=${TMDB_API_READ_TOKEN}
+      - OMDB_API_KEY=${OMDB_API_KEY}
+      - TAVILY_API_KEY=${TAVILY_API_KEY}
+      - JWT_SECRET=${JWT_SECRET}
+      - ENCRYPTION_KEY=${ENCRYPTION_KEY}
