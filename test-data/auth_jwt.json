@@ -1,0 +1,9 @@
+{
+  "token_length": 228,
+  "payload_keys": [
+    "user_id",
+    "email",
+    "exp",
+    "iat"
+  ]
+}

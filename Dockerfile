@@ -17,4 +17,4 @@ EXPOSE 5010
 HEALTHCHECK --interval=30s --timeout=5s --retries=3 \
     CMD curl --fail http://localhost:5010/login || exit 1
 
-CMD ["python", "app.py"]
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "5010"]

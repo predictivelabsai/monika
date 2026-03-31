@@ -1,0 +1,63 @@
+{
+  "cast": [
+    {
+      "name": "Leonardo DiCaprio",
+      "character": "Dom Cobb",
+      "popularity": 12.0953
+    },
+    {
+      "name": "Joseph Gordon-Levitt",
+      "character": "Arthur",
+      "popularity": 3.1822
+    },
+    {
+      "name": "Ken Watanabe",
+      "character": "Saito",
+      "popularity": 3.9566
+    },
+    {
+      "name": "Tom Hardy",
+      "character": "Eames",
+      "popularity": 10.0326
+    },
+    {
+      "name": "Elliot Page",
+      "character": "Ariadne",
+      "popularity": 6.1302
+    },
+    {
+      "name": "Dileep Rao",
+      "character": "Yusuf",
+      "popularity": 0.7619
+    },
+    {
+      "name": "Cillian Murphy",
+      "character": "Robert Fischer, Jr.",
+      "popularity": 11.1718
+    },
+    {
+      "name": "Tom Berenger",
+      "character": "Peter Browning",
+      "popularity": 2.4645
+    },
+    {
+      "name": "Marion Cotillard",
+      "character": "Mal Cobb",
+      "popularity": 3.4053
+    },
+    {
+      "name": "Pete Postlethwaite",
+      "character": "Maurice Fischer",
+      "popularity": 1.3064
+    }
+  ],
+  "directors": [
+    "Christopher Nolan"
+  ],
+  "producers": [
+    "Christopher Nolan",
+    "Emma Thomas",
+    "Kanjiro Sakura",
+    "Yoshikuni Taki"
+  ]
+}

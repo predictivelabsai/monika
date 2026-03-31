@@ -1,0 +1,33 @@
+{
+  "tables": [
+    "audience_reports",
+    "budget_items",
+    "budgets",
+    "chat_conversations",
+    "chat_messages",
+    "checklist_items",
+    "closing_checklists",
+    "collections",
+    "comp_films",
+    "contact_activities",
+    "contacts",
+    "credit_ratings",
+    "deal_approvals",
+    "deal_balances",
+    "deal_contacts",
+    "deal_documents",
+    "deal_incentives",
+    "deals",
+    "incentive_programs",
+    "messages",
+    "risk_assessments",
+    "sales_contracts",
+    "sales_estimates",
+    "schedule_days",
+    "schedules",
+    "talent_reports",
+    "transactions",
+    "users"
+  ],
+  "count": 28
+}

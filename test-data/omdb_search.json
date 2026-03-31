@@ -1,0 +1,23 @@
+{
+  "title": "Inception",
+  "year": "2010",
+  "rated": "PG-13",
+  "runtime": "148 min",
+  "genre": "Action, Adventure, Sci-Fi",
+  "director": "Christopher Nolan",
+  "actors": "Leonardo DiCaprio, Joseph Gordon-Levitt, Elliot Page",
+  "plot": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a CEO, but his tragic past may doom the project and his team to disaster.",
+  "language": "English, Japanese, French",
+  "country": "United States, United Kingdom",
+  "awards": "Won 4 Oscars. 160 wins & 220 nominations total",
+  "imdb_id": "tt1375666",
+  "imdb_rating": "8.8",
+  "imdb_votes": "2,793,322",
+  "box_office": 292587330,
+  "production": "N/A",
+  "ratings": {
+    "imdb": "8.8/10",
+    "rotten_tomatoes": "87%",
+    "metacritic": "74/100"
+  }
+}

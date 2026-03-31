@@ -791,7 +791,7 @@ def _right_pane():
 # Auth Routes
 # ---------------------------------------------------------------------------
 
-@rt("/login")
+@rt("/login", methods=["GET"])
 def login_page(session):
     if session.get("user_id"):
         return RedirectResponse("/", status_code=303)
@@ -844,7 +844,7 @@ def login_submit(email: str, password: str, session):
     return RedirectResponse("/", status_code=303)
 
 
-@rt("/register")
+@rt("/register", methods=["GET"])
 def register_page(session):
     if session.get("user_id"):
         return RedirectResponse("/", status_code=303)

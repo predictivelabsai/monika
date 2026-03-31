@@ -1,0 +1,158 @@
+{
+  "passed": 30,
+  "failed": 0,
+  "total": 30,
+  "tests": [
+    {
+      "test": "DB connection",
+      "status": "PASS",
+      "detail": "Connected"
+    },
+    {
+      "test": "DB schema tables exist",
+      "status": "PASS",
+      "detail": "28 tables"
+    },
+    {
+      "test": "Auth: create user",
+      "status": "PASS",
+      "detail": "Created test@ahmf.local"
+    },
+    {
+      "test": "Auth: authenticate",
+      "status": "PASS",
+      "detail": "Authenticated Test User"
+    },
+    {
+      "test": "Auth: bad password fails",
+      "status": "PASS",
+      "detail": "Correctly rejected"
+    },
+    {
+      "test": "Auth: JWT create & decode",
+      "status": "PASS",
+      "detail": "JWT OK"
+    },
+    {
+      "test": "Seed: create test deal",
+      "status": "PASS",
+      "detail": "Created deal d8b05790"
+    },
+    {
+      "test": "Seed: create test contact",
+      "status": "PASS",
+      "detail": "Created contact 64e5f0ef"
+    },
+    {
+      "test": "Seed: second deal (pipeline)",
+      "status": "PASS",
+      "detail": "Created"
+    },
+    {
+      "test": "Tool: search_deals",
+      "status": "PASS",
+      "detail": "250 chars"
+    },
+    {
+      "test": "Tool: get_deal_detail",
+      "status": "PASS",
+      "detail": "OK"
+    },
+    {
+      "test": "Tool: get_portfolio_overview",
+      "status": "PASS",
+      "detail": "OK"
+    },
+    {
+      "test": "Tool: search_contacts",
+      "status": "PASS",
+      "detail": "OK"
+    },
+    {
+      "test": "TMDB: search movies",
+      "status": "PASS",
+      "detail": "3 results"
+    },
+    {
+      "test": "TMDB: movie details",
+      "status": "PASS",
+      "detail": "Budget: $160,000,000"
+    },
+    {
+      "test": "TMDB: movie credits",
+      "status": "PASS",
+      "detail": "10 cast, 1 directors"
+    },
+    {
+      "test": "TMDB: search people",
+      "status": "PASS",
+      "detail": "Leonardo DiCaprio (pop: 12)"
+    },
+    {
+      "test": "OMDB: search movie",
+      "status": "PASS",
+      "detail": "Box office: $292,587,330"
+    },
+    {
+      "test": "Tool: search_incentives",
+      "status": "PASS",
+      "detail": "OK"
+    },
+    {
+      "test": "Tool: search_talent",
+      "status": "PASS",
+      "detail": "OK"
+    },
+    {
+      "test": "Tool: generate_closing_checklist",
+      "status": "PASS",
+      "detail": "OK"
+    },
+    {
+      "test": "Command: help",
+      "status": "PASS",
+      "detail": "OK"
+    },
+    {
+      "test": "Command: deal:list",
+      "status": "PASS",
+      "detail": "OK"
+    },
+    {
+      "test": "Command: portfolio",
+      "status": "PASS",
+      "detail": "OK"
+    },
+    {
+      "test": "Command: incentives",
+      "status": "PASS",
+      "detail": "OK"
+    },
+    {
+      "test": "Command: talent:search",
+      "status": "PASS",
+      "detail": "OK"
+    },
+    {
+      "test": "Command: unknown falls through",
+      "status": "PASS",
+      "detail": "Falls through to AI"
+    },
+    {
+      "test": "Chat: save & load conversation",
+      "status": "PASS",
+      "detail": "OK"
+    },
+    {
+      "test": "Config: settings load",
+      "status": "PASS",
+      "detail": "Genres: 16, Territories: 19"
+    },
+    {
+      "test": "PDF extractor: import OK",
+      "status": "PASS",
+      "detail": "Scenes: 2, Chars: 5"
+    }
+  ],
+  "timestamp": "2026-04-01 01:16:47"
+}
