@@ -1236,4 +1236,4 @@ def index(session):
 # Serve
 # ---------------------------------------------------------------------------
 
-serve(host="0.0.0.0", port=5010)
+serve(host="0.0.0.0", port=5010, reload=os.getenv("AHMF_RELOAD", "true").lower() == "true")

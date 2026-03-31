@@ -4,6 +4,8 @@ services:
     restart: unless-stopped
     expose:
       - "5010"
+    ports:
+      - "5010:5010"
     environment:
       - DB_URL=${DB_URL}
       - XAI_API_KEY=${XAI_API_KEY}
@@ -13,6 +15,7 @@ services:
       - TAVILY_API_KEY=${TAVILY_API_KEY}
       - JWT_SECRET=${JWT_SECRET}
       - ENCRYPTION_KEY=${ENCRYPTION_KEY}
+      - AHMF_RELOAD=false
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:5010/login"]
       interval: 30s
