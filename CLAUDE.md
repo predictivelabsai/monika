@@ -101,18 +101,22 @@ When the user says "run tests" or "run regression", execute `python tests/test_s
 ## User Guide Generation
 
 The in-app User Guide (`modules/guide.py`) displays screenshots from `static/guide/`.
-To regenerate screenshots after UI changes:
+To regenerate all screenshots after UI changes:
 
-1. Start the app: `python app.py`
-2. Use Playwright MCP to navigate to each module and capture screenshots:
-   - Login page → `static/guide/00_login.png`
-   - Welcome screen → `static/guide/01_welcome.png`
-   - Each module page (deals, contacts, estimates, risk, budget, schedule, funding, dataroom, audience, talent)
-   - Key sub-pages (new deal form, risk form, checklist detail)
-   - Chat responses (help command, portfolio command)
-3. Screenshots are served as static files and embedded in the guide via `<img src="/static/guide/...">`
+```bash
+# Option 1: App already running
+python app.py &
+python tests/capture_guide.py
 
-The guide has 13 sections with table of contents, each with a description, screenshot, and caption.
+# Option 2: Auto-start app
+python tests/capture_guide.py --start-app
+```
+
+This launches a headless Playwright browser, logs in, navigates every module,
+captures 17 screenshots to `static/guide/`, and captures chat command responses.
+The guide module serves them as `<img src="/static/guide/...">`.
+
+When the user says "regenerate guide" or "update screenshots", run `python tests/capture_guide.py`.
 
 ## Slide Deck Generation
 
