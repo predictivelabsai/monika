@@ -160,21 +160,19 @@ add_content_slide("Platform Vision", [
     "Powered by LangGraph + XAI Grok-3 AI engine",
 ], screenshot="01_welcome.png")
 
-# 3. Deal Pipeline
+# 3. Film Financing OS Overview
 add_content_slide("Film Financing Operating System", [
-    "**The core operating system for Ashland Hill's Media Finance unit**",
+    "**The core operating system — 6 fully operational modules**",
     "---",
     "Deals — Pipeline dashboard, deal structuring, performance tracking",
     "Contacts — Counterparty profiles, relationship mapping",
-    "Sales & Collections — Territory-based revenue tracking",
-    "Credit Rating — Distributor/producer scoring, payment reliability",
-    "Accounting — Multi-account balance tracking, audit trail",
-    "Communications — Task assignment, milestone notifications",
-    "",
-    "2 deals tracked | $20M total committed | Pipeline & Active statuses",
+    "Sales & Collections — Territory contracts, MG tracking, collection payments",
+    "Credit Rating — AI-powered counterparty scoring (AAA-CCC tiers)",
+    "Accounting — Transaction ledger, disbursements, repayments, net position",
+    "Communications — Deal-linked messages, tasks with deadlines, completion tracking",
 ], screenshot="02_deals.png")
 
-# 4. New Deal
+# 4. Deal Structuring
 add_content_slide("Deal Structuring", [
     "**Comprehensive deal creation with all financing parameters**",
     "---",
@@ -184,6 +182,59 @@ add_content_slide("Deal Structuring", [
     "Territory and collateral type",
     "Full audit trail with created_by tracking",
 ], screenshot="03_deal_new.png")
+
+# 4b. Sales & Collections
+add_content_slide("Sales & Collections", [
+    "**Territory-based revenue tracking and collateral monitoring**",
+    "---",
+    "Sales contracts linked to deals and distributors",
+    "Territory-based MG (Minimum Guarantee) commitments",
+    "Collection payment recording with due dates",
+    "Status tracking: pending, received, overdue",
+    "Variance analysis: projected vs actual collections",
+    "Receivable flagging for delayed payments",
+], screenshot="05_sales.png")
+
+# 4c. Credit Rating
+add_content_slide("Credit Rating", [
+    "**AI-powered counterparty strength assessment**",
+    "---",
+    "Select any distributor, producer, or sales agent",
+    "AI generates comprehensive credit profile:",
+    "  Credit Score (0-100)",
+    "  Payment Reliability (0-100)",
+    "  Risk Tier (AAA through CCC)",
+    "",
+    "**Factor Analysis:**",
+    "  Track Record — historical deal performance",
+    "  Financial Stability — company financials",
+    "  Market Position — competitive standing",
+    "  Payment History — on-time payment patterns",
+], screenshot="17_credit.png")
+
+# 4d. Accounting
+add_content_slide("Accounting", [
+    "**Transaction-level financial integrity**",
+    "---",
+    "Full transaction ledger across all deals",
+    "Transaction types: Disbursement, Repayment, Fee, Interest, Adjustment",
+    "Multi-currency support (USD, EUR, GBP, CAD, AUD, JPY, CNY)",
+    "Net position tracking (repaid + fees - disbursed)",
+    "Counterparty linking for audit trail",
+    "Reference notes per transaction",
+], screenshot="18_accounting.png")
+
+# 4e. Communications
+add_content_slide("Communications", [
+    "**Execution control layer for deal teams**",
+    "---",
+    "Deal-linked messages, tasks, and notifications",
+    "Task assignment with due dates and deadlines",
+    "Interactive checkboxes to mark task completion",
+    "Overdue task flagging for missed deadlines",
+    "Status dashboard: open tasks, completed, overdue",
+    "Full message history per deal",
+], screenshot="19_comms.png")
 
 # 5. Sales Estimates
 add_content_slide("Sales Estimates Generator", [
@@ -306,11 +357,11 @@ add_content_slide("Talent Intelligence", [
 
 # 13. AI Chat
 add_content_slide("AI Chat — The Intelligence Layer", [
-    "**14 AI tools accessible via natural language or structured commands**",
+    "**18 AI tools accessible via natural language or structured commands**",
     "---",
-    "deal:list — View all deals in pipeline",
-    "portfolio — Aggregate portfolio statistics",
-    "contact:search NAME — Search contact database",
+    "deal:list / portfolio — Deal pipeline and portfolio analytics",
+    "contact:search / credit:NAME — Contacts and credit ratings",
+    "sales:list / transactions / messages — Financial operations",
     "incentives — Search global film tax incentives",
     "talent:search NAME — Look up actors/directors via TMDB",
     "risk:new / budget:new / schedule:new — AI analysis tools",
@@ -324,32 +375,32 @@ add_content_slide("Technical Summary", [
     "**Production-grade architecture**",
     "---",
     "Frontend: FastHTML + HTMX (server-rendered, no React/JS frameworks)",
-    "AI Engine: LangGraph + XAI Grok-3 (14 structured tools)",
+    "AI Engine: LangGraph + XAI Grok-3 (18 structured tools)",
     "Database: PostgreSQL (28 tables in ahmf schema)",
     "Film Data: TMDB + OMDB APIs (budgets, revenue, cast, ratings)",
     "Auth: Email/password + JWT session management",
     "Deployment: Docker + Coolify (auto-deploy on git push)",
     "Test Suite: 30 automated tests covering all modules",
     "",
-    "**All 9 roadmap products operational**",
+    "**All 9 roadmap products fully operational — no placeholders**",
 ], two_col=True)
 
 # 15. Next Steps
 add_content_slide("Next Steps", [
     "**Continued platform depth and integrations**",
     "---",
-    "Deepen Product 1: Full CRUD on Sales & Collections, Credit Rating, Accounting",
     "Sales Estimate Pipeline: 5-node LangGraph pipeline (analyze > comps > territory > forecast > report)",
     "PDF Script Ingestion: Upload screenplays for automated analysis",
     "Closing Workflow Automation: Drawdown requests, digital signatures",
     "Portfolio Analytics Dashboard: IRR tracking, collection monitoring, variance analysis",
+    "Investor Reporting: Automated LP/capital partner reports",
     "Mobile Responsive: Tablet-optimized layout for on-the-go deal review",
 ], two_col=True)
 
-# 16. Thank you
+# 16. Contact
 add_title_slide(
     "Thank You",
-    "Joe Simpson — Managing Partner\nAshland Hill Media Finance"
+    "Joe Simpson — Managing Partner\nSimon Williams — Managing Partner\n\nAshland Hill Media Finance"
 )
 
 # Save

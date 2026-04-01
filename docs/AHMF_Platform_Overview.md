@@ -36,22 +36,71 @@ AHMF is a centralized, AI-driven operating system purpose-built for private cred
 
 ## Slide 3: Product 1 — Film Financing Operating System
 
-**The iOS/Windows of Ashland Hill's Media Finance unit**
-
-6 integrated modules managing the full deal lifecycle:
+**The core operating system — 6 fully operational modules**
 
 | Module | Function |
 |--------|----------|
 | Deals | Pipeline dashboard, deal structuring, performance tracking |
 | Contacts | Counterparty profiles, relationship mapping |
-| Sales & Collections | Territory-based revenue tracking, receivable monitoring |
-| Credit Rating | Distributor/producer scoring, payment reliability |
-| Accounting | Multi-account balance tracking, audit trail |
-| Communications | Task assignment, milestone notifications |
-
-**Key Metrics:** 2 deals, $20M total committed, Pipeline/Active tracking
+| Sales & Collections | Territory contracts, MG tracking, collection payments, variance analysis |
+| Credit Rating | AI-powered counterparty scoring (AAA-CCC tiers), payment reliability, risk factors |
+| Accounting | Transaction ledger, disbursements/repayments/fees/interest, multi-currency, net position |
+| Communications | Deal-linked messages & tasks, due dates, completion tracking, overdue flagging |
 
 ![Deal Pipeline](static/guide/02_deals.png)
+
+---
+
+## Slide 3b: Sales & Collections
+
+**Territory-based revenue tracking and collateral monitoring**
+
+- Sales contracts linked to deals and distributors
+- Territory-based MG (Minimum Guarantee) commitments
+- Collection payment recording with due dates
+- Status tracking: pending, received, overdue
+- Variance analysis: projected vs actual collections
+
+![Sales & Collections](static/guide/05_sales.png)
+
+---
+
+## Slide 3c: Credit Rating
+
+**AI-powered counterparty strength assessment**
+
+- Credit Score (0-100) and Payment Reliability (0-100)
+- Risk Tier classification (AAA through CCC)
+- Factor analysis: track record, financial stability, market position, payment history
+- Per-contact rating history
+
+![Credit Rating](static/guide/17_credit.png)
+
+---
+
+## Slide 3d: Accounting
+
+**Transaction-level financial integrity**
+
+- Full transaction ledger across all deals
+- Types: Disbursement, Repayment, Fee, Interest, Adjustment
+- Multi-currency support (7 currencies)
+- Net position tracking and counterparty audit trail
+
+![Accounting](static/guide/18_accounting.png)
+
+---
+
+## Slide 3e: Communications
+
+**Execution control layer for deal teams**
+
+- Deal-linked messages, tasks, and notifications
+- Task assignment with due dates and deadlines
+- Interactive checkboxes for task completion
+- Overdue task flagging
+
+![Communications](static/guide/19_comms.png)
 
 ---
 
@@ -182,14 +231,13 @@ AI-powered analysis outputs:
 
 ## Slide 12: AI Chat — The Intelligence Layer
 
-**14 AI tools accessible via natural language or structured commands**
+**18 AI tools accessible via natural language or structured commands**
 
 The AI assistant can:
-- Look up and create deals
-- Search contacts and distributors
+- Look up deals, portfolio stats, sales contracts, transactions, messages
+- Search contacts and generate credit ratings
 - Query TMDB/OMDB for film comparisons
-- Analyze production risk
-- Generate budgets and schedules
+- Analyze production risk, generate budgets and schedules
 - Search global tax incentives
 - Recommend cast with package simulations
 - Predict audience segments and marketing strategy
@@ -203,7 +251,7 @@ The AI assistant can:
 **From A (Single-Picture Lender) to B (Integrated Media Platform)**
 
 ```
-1. End-to-End Film Financing OS         [LIVE]
+1. End-to-End Film Financing OS         [LIVE - 6 modules]
 2. Sales Estimates Generator             [LIVE]
 3. Production Risk Scoring System        [LIVE]
 4. Smart Budgeting Tool                  [LIVE]
@@ -214,7 +262,7 @@ The AI assistant can:
 9. Talent Intelligence                   [LIVE]
 ```
 
-All 9 products operational. Foundation built for continued depth and integrations.
+All 9 products fully operational — no placeholders remaining.
 
 ---
 
@@ -223,7 +271,7 @@ All 9 products operational. Foundation built for continued depth and integration
 | Component | Detail |
 |-----------|--------|
 | Frontend | FastHTML + HTMX (server-rendered, no React) |
-| AI Engine | LangGraph + XAI Grok-3 (14 tools) |
+| AI Engine | LangGraph + XAI Grok-3 (18 tools) |
 | Database | PostgreSQL (28 tables, `ahmf` schema) |
 | Film Data | TMDB + OMDB APIs |
 | Auth | Email/password + JWT sessions |
@@ -234,14 +282,14 @@ All 9 products operational. Foundation built for continued depth and integration
 
 ## Slide 15: Next Steps
 
-1. **Deepen Product 1**: Full CRUD on Sales & Collections, Credit Rating, Accounting
-2. **Sales Estimate Pipeline**: 5-node LangGraph pipeline (analyze > comps > territory > forecast > report)
-3. **PDF Script Ingestion**: Upload screenplays for automated analysis
-4. **Closing Workflow Automation**: Drawdown requests, digital signatures
-5. **Portfolio Analytics Dashboard**: IRR tracking, collection monitoring, variance analysis
+1. **Sales Estimate Pipeline**: 5-node LangGraph pipeline (analyze > comps > territory > forecast > report)
+2. **PDF Script Ingestion**: Upload screenplays for automated analysis
+3. **Closing Workflow Automation**: Drawdown requests, digital signatures
+4. **Portfolio Analytics Dashboard**: IRR tracking, collection monitoring, variance analysis
+5. **Investor Reporting**: Automated LP/capital partner reports
 6. **Mobile Responsive**: Tablet-optimized layout for on-the-go deal review
 
 ---
 
 *Ashland Hill Media Finance — Private & Confidential*
-*Contact: Joe Simpson, Managing Partner*
+*Contact: Joe Simpson, Managing Partner | Simon Williams, Managing Partner*
