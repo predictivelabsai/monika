@@ -699,6 +699,7 @@ _ICONS = {
     "dataroom": '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>',
     "audience": '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>',
     "talent": '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>',
+    "search": '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>',
     "logout": '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>',
 }
 
@@ -737,6 +738,7 @@ def _left_pane(user=None):
         Div(
             Div("Intelligence", cls="sidebar-section-title"),
             _sidebar_item("chat", "AI Chat", "showChat()", item_id="nav-chat", active=True),
+            _sidebar_item("search", "User Guide", "loadModule('/module/guide', 'User Guide')", item_id="nav-guide"),
             cls="sidebar-section",
         ),
         Div(
@@ -1126,31 +1128,42 @@ def contact_create(session, name: str, company: str = "", contact_type: str = "o
     return module_contacts(session)
 
 
-# Scaffold module routes for Sales, Credit, Accounting, Comms
+# Product 1 sub-module placeholder pages
+def _p1_placeholder(title, desc, features):
+    return Div(
+        Div(
+            H2(title), P(desc, style="color:#64748b;margin-bottom:1.5rem;"),
+            H3("Planned Features", style="font-size:0.95rem;margin-bottom:0.5rem;"),
+            Ul(*[Li(f, style="color:#475569;padding:0.2rem 0;") for f in features]),
+            style="max-width:600px;margin:2rem auto;",
+        ),
+        cls="module-content",
+    )
+
 @rt("/module/sales")
 def module_sales(session):
-    return _scaffold_page("Sales & Collections",
+    return _p1_placeholder("Sales & Collections",
         "Revenue tracking and collateral monitoring engine.",
-        ["Territory-Based Sales Mapping", "Distributor Integration", "Collection Management & Alerts",
+        ["Territory-Based Sales Mapping", "Distributor & Sales Agent Integration", "Collection Management & Alerts",
          "Variance Analysis (Projected vs Actual)", "Receivable Tracking & Delay Flagging"])
 
 @rt("/module/credit")
 def module_credit(session):
-    return _scaffold_page("Credit Rating",
+    return _p1_placeholder("Credit Rating",
         "Counterparty strength assessment layer.",
         ["Automated Distributor & Producer Scoring", "Payment Reliability Tracking",
          "Risk Assessment Metrics", "Custom Rating Frameworks"])
 
 @rt("/module/accounting")
 def module_accounting(session):
-    return _scaffold_page("Accounting",
+    return _p1_placeholder("Accounting",
         "Transaction-level financial integrity.",
         ["Multi-Account Balance Tracking", "Payment Evidence & Audit Trail",
          "FX & Currency Management", "Automated Reconciliation"])
 
 @rt("/module/comms")
 def module_comms(session):
-    return _scaffold_page("Communications",
+    return _p1_placeholder("Communications",
         "Execution control layer.",
         ["Integrated Messaging", "Task Assignment & Deadline Tracking",
          "Version-Controlled Notes", "Milestone & Payment Notifications"])
@@ -1186,6 +1199,7 @@ from modules.funding import register_routes as funding_routes
 from modules.dataroom import register_routes as dataroom_routes
 from modules.audience import register_routes as audience_routes
 from modules.talent import register_routes as talent_routes
+from modules.guide import register_routes as guide_routes
 
 risk_routes(rt)
 budget_routes(rt)
@@ -1194,6 +1208,7 @@ funding_routes(rt)
 dataroom_routes(rt)
 audience_routes(rt)
 talent_routes(rt)
+guide_routes(rt)
 
 
 # ---------------------------------------------------------------------------
