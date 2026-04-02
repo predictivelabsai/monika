@@ -1,0 +1,21 @@
+deal_title,txn_type,amount,currency,counterparty_name,reference,posted_date
+The Last Witness,disbursement,12000000,USD,Meridian Films LLC,Wire #AH-2025-001,2025-09-20
+The Last Witness,repayment,2000000,USD,Lionsgate Films,Collection from US pre-sale,2025-12-15
+The Last Witness,interest,285000,USD,Meridian Films LLC,Q4 2025 interest payment,2025-12-31
+The Last Witness,repayment,1200000,GBP,StudioCanal,UK MG payment,2026-01-10
+Midnight in Marrakech,disbursement,8000000,USD,Atlas Productions,Wire #AH-2025-002,2025-11-05
+Midnight in Marrakech,repayment,1500000,USD,A24 Films,US advance payment,2026-01-20
+Midnight in Marrakech,interest,175000,USD,Atlas Productions,Q4 2025 interest,2025-12-31
+The Garden of Bones,disbursement,5000000,USD,Darkwood Pictures,Wire #AH-2025-003,2025-08-10
+The Garden of Bones,repayment,2500000,USD,Lionsgate Films,US theatrical collection,2026-02-01
+The Garden of Bones,fee,50000,USD,Darkwood Pictures,Origination fee,2025-08-10
+Savage Coast,disbursement,15000000,USD,Pacific Rim Productions,Wire #AH-2025-004,2025-07-20
+Savage Coast,repayment,3000000,USD,Lionsgate Films,Domestic advance,2025-11-01
+Savage Coast,interest,365625,USD,Pacific Rim Productions,Q3-Q4 2025 interest,2025-12-31
+The Interpreter,disbursement,7000000,USD,Cipher Films Inc,Wire #AH-2024-010,2024-06-15
+The Interpreter,repayment,7000000,USD,Cipher Films Inc,Full repayment,2025-09-30
+The Interpreter,interest,472500,USD,Cipher Films Inc,Total interest paid,2025-09-30
+The Interpreter,fee,70000,USD,Cipher Films Inc,Origination fee,2024-06-15
+Paper Moon Rising,disbursement,3500000,USD,Harvest Moon Pictures,Wire #AH-2024-015,2024-09-10
+Paper Moon Rising,repayment,3500000,USD,Harvest Moon Pictures,Full repayment,2025-11-15
+Paper Moon Rising,interest,210000,USD,Harvest Moon Pictures,Total interest paid,2025-11-15
