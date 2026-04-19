@@ -1338,7 +1338,8 @@ scoring_routes(rt)
 @rt("/")
 def index(session, new: str = "", thread: str = ""):
     if not session.get("user_id"):
-        return RedirectResponse("/login", status_code=303)
+        from modules.landing import landing_page
+        return landing_page()
 
     # New chat: generate fresh thread
     if new == "1":

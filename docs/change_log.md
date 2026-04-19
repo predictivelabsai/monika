@@ -13,6 +13,10 @@ python change_log.py --message "Release notes..."
 
 ---
 
+## v0.2.0 (2026-04-19)
+
+Add Monika landing page with Santa Monica/sunset palette, real Ashland Hill slate and team, and links back to ashland-hill.com
+
 ## v0.1.0 (2026-04-16)
 
 ### Added
