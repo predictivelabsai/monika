@@ -1,8 +1,37 @@
-/* Monika — UI controller (sidebar nav, chat toggle, table CSV). */
+/* Monika — UI controller (sidebar nav, chat toggle, right pane, copilot, table CSV). */
 
 (() => {
     const $ = (sel) => document.querySelector(sel);
     const $$ = (sel) => Array.from(document.querySelectorAll(sel));
+
+    // ── Current module context ──────────────────────────────────
+    window._currentModule = { path: "/module/home", title: "Home", moduleId: "home" };
+
+    function moduleIdFromPath(path) {
+        const m = path.match(/\/module\/([^/?]+)/);
+        return m ? m[1] : "home";
+    }
+
+    // ── Right pane mode switching ───────────────────────────────
+    function switchRightPane(mode) {
+        const docs = document.getElementById("right-documents");
+        const copilot = document.getElementById("right-copilot");
+        const title = document.getElementById("right-pane-title");
+        if (mode === "documents") {
+            if (docs) docs.style.display = "flex";
+            if (copilot) copilot.style.display = "none";
+            if (title) title.textContent = "Documents";
+        } else {
+            if (docs) docs.style.display = "none";
+            if (copilot) copilot.style.display = "flex";
+            if (title) title.textContent = "AI Copilot";
+        }
+    }
+
+    window.toggleRightPane = () => {
+        const layout = $(".app-layout");
+        if (layout) layout.classList.toggle("right-collapsed");
+    };
 
     // ── Mobile sidebar toggle ────────────────────────────────────
     window.toggleLeftPane = () => {
@@ -23,6 +52,7 @@
         $$(".nav-item").forEach(i => i.classList.remove("active"));
         const btn = document.getElementById("nav-chat");
         if (btn) btn.classList.add("active");
+        switchRightPane("documents");
     };
 
     // ── Load module into center pane ─────────────────────────────
@@ -38,6 +68,33 @@
         if (h) h.textContent = title;
         $$(".nav-item").forEach(i => i.classList.remove("active"));
         if (event && event.currentTarget) event.currentTarget.classList.add("active");
+
+        // Update module context and switch right pane to copilot
+        const mid = moduleIdFromPath(path);
+        window._currentModule = { path, title, moduleId: mid };
+        switchRightPane("copilot");
+
+        // Update copilot module ID hidden field
+        const modField = document.getElementById("copilot-module-id");
+        if (modField) modField.value = mid;
+
+        // Load shortcuts for this module
+        const shortcuts = document.getElementById("copilot-shortcuts");
+        if (shortcuts) {
+            htmx.ajax("GET", "/api/copilot/shortcuts/" + mid, {
+                target: "#copilot-shortcuts", swap: "innerHTML"
+            });
+        }
+    };
+
+    // ── Copilot query helper ────────────────────────────────────
+    window.sendCopilotQuery = (query) => {
+        const ta = document.getElementById("copilot-input");
+        const form = document.getElementById("copilot-form");
+        if (ta && form) {
+            ta.value = query;
+            form.requestSubmit();
+        }
     };
 
     // ── Fill chat input (for prompts) ────────────────────────────
@@ -106,10 +163,17 @@
         });
     }
 
-    document.querySelectorAll(".chat-message-content, .module-content").forEach(b => enhanceTables(b));
+    // Auto-scroll copilot messages on new content
     new MutationObserver(() => {
         document.querySelectorAll(".chat-message-content, .module-content").forEach(b => enhanceTables(b));
+        const cm = document.getElementById("copilot-messages");
+        if (cm) cm.scrollTop = cm.scrollHeight;
     }).observe(document.body, { childList: true, subtree: true });
 
+    document.querySelectorAll(".chat-message-content, .module-content").forEach(b => enhanceTables(b));
+
     window.enhanceTables = enhanceTables;
+
+    // ── Initialize right pane on load ────────────────────────────
+    switchRightPane("copilot");
 })();

@@ -451,6 +451,95 @@ def _left_pane(user=None):
     )
 
 
+def _right_pane():
+    """Right pane: Documents (chat mode) or AI Copilot (module mode)."""
+    return Div(
+        Div(
+            Span("AI Copilot", id="right-pane-title", cls="right-pane-title"),
+            Button("✕", cls="right-close-btn", onclick="toggleRightPane()"),
+            cls="right-header",
+        ),
+        # Mode A: Documents — shown when main AI chat is active
+        Div(
+            Div("Artifacts from your AI conversation will appear here.",
+                cls="right-empty-state", id="documents-empty"),
+            id="right-documents",
+            cls="right-body",
+            style="display:none;",
+        ),
+        # Mode B: AI Copilot — shown when a module page is active
+        Div(
+            Div(id="copilot-messages", cls="copilot-messages"),
+            Div(
+                Div(id="copilot-shortcuts", cls="copilot-shortcuts",
+                    hx_get="/api/copilot/shortcuts/home", hx_trigger="load", hx_swap="innerHTML"),
+                Form(
+                    Div(
+                        Textarea(placeholder="Ask about this data...", id="copilot-input",
+                                 name="msg", rows="2", cls="copilot-textarea"),
+                        Hidden(name="module_id", id="copilot-module-id", value="home"),
+                        Button("→", type="submit", cls="copilot-send-btn"),
+                        cls="copilot-input-row",
+                    ),
+                    id="copilot-form",
+                    hx_post="/api/copilot/query",
+                    hx_target="#copilot-messages",
+                    hx_swap="beforeend",
+                    hx_indicator="#copilot-spinner",
+                ),
+                Div(Span("Thinking...", cls="copilot-thinking"), id="copilot-spinner", cls="htmx-indicator"),
+                cls="copilot-footer",
+            ),
+            id="right-copilot",
+            cls="right-body",
+        ),
+        # Trace content target for main chat OOB swaps
+        Div(id="trace-content", style="display:none;"),
+        id="right-pane",
+        cls="right-pane",
+    )
+
+
+# ---------------------------------------------------------------------------
+# Copilot API Routes
+# ---------------------------------------------------------------------------
+
+@rt("/api/copilot/shortcuts/{module_id}")
+def copilot_shortcuts(module_id: str):
+    from agents.copilot import COPILOT_SHORTCUTS
+    shortcuts = COPILOT_SHORTCUTS.get(module_id, COPILOT_SHORTCUTS.get("home", []))
+    buttons = []
+    for label, desc in shortcuts:
+        buttons.append(
+            Button(label, cls="copilot-shortcut-btn", title=desc,
+                   onclick=f"sendCopilotQuery('{label.replace(chr(39), '')}')")
+        )
+    return Div(*buttons, id="copilot-shortcuts")
+
+
+@rt("/api/copilot/query", methods=["POST"])
+async def copilot_query_endpoint(msg: str, module_id: str = "home", session=None):
+    from agents.copilot import copilot_query
+    import html as _html
+
+    user_bubble = Div(
+        Div(_html.escape(msg), cls="copilot-msg copilot-user"),
+    )
+
+    try:
+        result = await copilot_query(msg, module_id)
+    except Exception as e:
+        result = f"Error: {str(e)[:200]}"
+
+    asst_bubble = Div(
+        Div(NotStr(result), cls="copilot-msg copilot-assistant"),
+    )
+
+    clear_input = Script("document.getElementById('copilot-input').value='';")
+
+    return Div(user_bubble, asst_bubble, clear_input)
+
+
 # ---------------------------------------------------------------------------
 # Auth Routes
 # ---------------------------------------------------------------------------
@@ -1907,6 +1996,7 @@ def index(session, new: str = "", thread: str = ""):
                 Div(agui.chat(thread_id), cls="center-chat", id="center-chat", style="display:none;"),
                 cls="center-pane",
             ),
+            _right_pane(),
             cls="app-layout",
         ),
         Script(src="/static/chat.js"),
